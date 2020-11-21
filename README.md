@@ -11,15 +11,15 @@ Java后端学习路线
 3. 服务器软件
  >* Web服务器
  >* 应用服务器
-   >* Tomcat
-   >* Jetty
-   >* Undertow
+   >>* Tomcat
+   >>* Jetty
+   >>* Undertow
 4. 中间件
  >* 缓存
  >* 消息队列
  >* RPC
 5. 数据库
  >* ORM层框架
-  >* MyBatis
+  >>* MyBatis
  >* 连接池
  >* 分库分表
