@@ -1,0 +1,54 @@
+# Java语法知识点笔记——算法题目相关
+主要目的是讲每天刷算法题中用到的语法知识点做一个记录
+## 1. lambda 表达式
+(parameters) -> expression
+或
+(parameters) ->{ statements; }
+
+简单例子：
+
+```java
+// 1. 不需要参数,返回值为 5  
+() -> 5  
+  
+// 2. 接收一个参数(数字类型),返回其2倍的值  
+x -> 2 * x  
+  
+// 3. 接受2个参数(数字),并返回他们的差值  
+(x, y) -> x – y  
+  
+// 4. 接收2个int型整数,返回他们的和  
+(int x, int y) -> x + y  
+MathOperation addition = (int a, int b) -> a + b;
+
+// 5. 接受一个 string 对象,并在控制台打印,不返回任何值(看起来像是返回void)  
+(String s) -> System.out.print(s)
+```
+
+
+## 2. 表示正负最大数值
+Integer.MAX_VALUE表示int数据类型的最大取值数：2 147 483 647
+Integer.MIN_VALUE表示int数据类型的最小取值数：-2 147 483 648
+对应：
+Short.MAX_VALUE 为short类型的最大取值数 32 767
+Short.MIN_VALUE 为short类型的最小取值数 -32 768
+还有对应的基本数据类型：int, short, long, byte, float,double的对应最大最小取值。
+
+***补充：***
+Integer.MAX_VALUE+1=Integer.MIN_VALUE
+
+## 3. 输出控制，保留两位小数
+```java
+System.out.println(String.format("%2f", res));
+```
+
+## 4. System.arraycopy(src, srcPos, dest, destPos, length)
+src表示源数组
+
+srcPos表示源数组中拷贝元素的起始位置。
+
+dest表示目标数组
+
+destPos表示拷贝到目标数组的起始位置
+
+length表示拷贝元素的个数
