@@ -153,9 +153,42 @@ FIC (Fast Index Create)
 5. B+树
 
 
-索引匹配方式
+**索引匹配**方式-->表示要启用索引
 ------------------
+* 普通索引
+	* 辅助索引
+	* 二级索引
+* 全文索引
+* 组合索引
 
+1. 全值匹配
+	* 全值匹配指的是和索引中的所有列进行匹配，explain select * from staffs where name = 'July' and age = '23' and pos = 'dev';
+2. 匹配最左前缀
+	* 只匹配前面的几列，explain select * from staffs where name = 'July' and age = '23';
+3. 匹配列前缀 (like 模糊查询)
+	* explain select * from staffs where name like 'J%';
+4. 匹配范围值
+	* 可以查某一范围的值，explain select * from staffs where name > 'Mary';
+5. 精确匹配某一列并范围匹配另外一列
+6. 只访问索引的查询
+	* 查询的时候只需要访问索引，不需要访问数据行，本质上就是覆盖索引
+索引失效的点：
+1. 只要出现了范围匹配，后面的索引就失效了
+
+哈希索引
+-------------
+1. 基于哈希表的表现，只有精确匹配索引的所有列的查询才有效。
+2. 在mysql中，只有memory的存储引擎显式支持哈希索引
+
+**尽量去减少索引的长度**
+
+CRC循环冗余数据校验规则
+
+组合索引
+--------
+1. 建立组合索引a,b,c
+2. or是特殊的
+3. 出现范围查找就会阻断
 
 
 
