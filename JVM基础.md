@@ -119,5 +119,82 @@ GC
 ------------
 1. 程序的栈(stack frame)和堆
 栈
+2. 根不可达
+
+如何清除?
+-----------
+1. Mark sweep
+2. Copying 空间浪费
+3. Mark-Compact 效率变低
+
+GC使用
+----
+1. ParNew + CMS
+2. Serial + Serial Old
+3. Parallel Scanvenge + Parallel Old
+4. 1.8后,用G1
+
+STW
+------
+stop-the-world,业务进程
+1. Serial----> a stop-the-world, copying collector that uses a single GC thread.
+2. Paralle多线程回收
+3. CMS
+业务线程和垃圾回收线程并发(concurrent)
+conrurrent mark sweep
+4 phases:
+* initial mark
+* concurrent mark
+* remark
+* concurrent sweep
+
+三色标记
+------------
+1. 浮动标记--->一个对象被GC认为不是垃圾, 但是随着业务进行,变成垃圾
+- 浮动垃圾floating garbage
+- 下次清除
+
+1) 黑色对象,自己已经标记,fields都标记完成
+2) 灰色对象,自己已经标记完成,还没来得及标记fields
+3) 白色对象,没有遍历到的节点
+
+实战
+-------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
